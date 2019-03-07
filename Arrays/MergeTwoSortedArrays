@@ -1,0 +1,62 @@
+package arrays;
+
+import java.util.Arrays;
+/*
+ * Given two sorted arrays, merge them into one array which should also be sorted
+ * */
+
+public class MergeTwoSortedArrays {
+	/*
+	 * Below function take two sorted arrays and joins, it does not sort the result list
+	 * */
+	public int[] merge(int[] arr1, int[] arr2) {
+		int s1 = arr1.length;
+		int s2 = arr2.length;
+		int count = 0;
+		int arr3[] = new int[s1+s2];
+		for(int i=0; i<arr1.length; i++) {
+			arr3[count++] = arr1[i];
+		}
+		for(int i=0; i<arr2.length; i++) {
+			arr3[count++] = arr2[i];
+		}
+		return arr3;
+	}
+	
+	/*
+	 * 
+	 * Below function take two sorted arrays, joins, and sort the result list
+	 * 
+	 * */
+	
+	public int[] mergeAndSort(int[] arr1, int[] arr2) {
+		int s1 = arr1.length;
+		int s2 = arr2.length;
+		int i=0, j=0, k=0;
+		int arr3[] = new int[s1+s2];
+		while(i<s1 && j<s2) {
+			if(arr1[i] < arr2[j]) {
+				arr3[k++] = arr1[i];
+				i++;
+			}else {
+				arr3[k++] = arr2[j];
+				j++;
+			}
+		}
+		 while (i < s1) 
+		      arr3[k++] = arr1[i++]; 
+		 while (j < s2) 
+		      arr3[k++] = arr2[j++]; 
+		return arr3;
+	}
+
+	public static void main(String[] args) {
+		MergeTwoSortedArrays obj = new MergeTwoSortedArrays();
+		//int result[] = obj.merge(new int[] {3, 2,30}, new int[] {40,500,16});
+		int result[] = obj.mergeAndSort(new int[] {3, 2,30}, new int[] {16,40,500});
+		for(int i: result) {
+			System.out.println(i);
+		}
+	}
+
+}
