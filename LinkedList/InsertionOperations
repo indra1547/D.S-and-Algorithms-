@@ -1,0 +1,61 @@
+package linkedList;
+
+public class LinkedList {
+	Node head;
+	public void insertAtEnd(int data) {
+		Node temp = head;
+		if(head == null) {
+			head = new Node(data);
+			return;
+		}
+		while(temp.next != null) {
+			temp = temp.next;
+		}
+		temp.next = new Node(data);
+	}
+	public void insertAtFront(int data) {
+		if(head == null) {
+			head = new Node(data);
+			return;
+		}
+		Node newNode = new Node(data);
+		newNode.next = head;
+		head = newNode;
+		
+	}
+	
+	public void insertAfter(int pos, int data) {
+		Node temp = head;
+		Node newNode = new Node(data);
+		while(temp.next != null) {
+			if(temp.next.data == pos ) {
+				Node temp1 = temp.next;
+				temp.next = newNode;
+				newNode.next = temp1;
+			}
+			temp =  temp.next;
+		}
+	}
+	public void printList() {
+		Node ptr = head;
+		while(ptr != null) {
+			System.out.println(ptr.data);
+			ptr = ptr.next;
+		}
+	}
+
+	public static void main(String[] args) {
+		LinkedList list = new LinkedList();
+		list.insertAtEnd(1);
+		list.insertAtEnd(2);
+		list.insertAtEnd(3);
+		list.insertAtEnd(4);
+		list.insertAtFront(0);
+		list.insertAtFront(-1);
+		list.insertAtEnd(5);
+		list.insertAfter(3, 9);
+		list.printList();
+
+	}
+
+}
