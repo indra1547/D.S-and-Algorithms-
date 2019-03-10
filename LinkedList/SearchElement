@@ -1,0 +1,45 @@
+package linkedList;
+
+public class SearchOperation {
+	Node head;
+	public boolean search(int value) {
+		Node temp = head;
+		while(temp != null) {
+			if(temp.data == value) 
+				return true;
+			
+			temp = temp.next;
+		}
+		return false;
+	}
+	
+	public void append(int data) {
+		if(head == null) {
+			head = new Node(data);
+			return;
+		}
+		Node temp = head;
+		while(temp.next != null) {
+			temp = temp.next;
+		}
+		temp.next = new Node(data);
+		
+	}
+	public static void main(String[] args) {
+		SearchOperation obj = new SearchOperation();
+		obj.append(2);
+		obj.append(3);
+		obj.append(4);
+		obj.append(0);
+		
+		if(obj.search(0)) {
+			System.out.println("Value found");
+		}
+		else {
+			System.out.println("Not found");
+		}
+
+	}
+
+}
+ 
