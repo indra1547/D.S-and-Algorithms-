@@ -1,0 +1,40 @@
+package linkedList;
+
+public class LengthOfLinkedList {
+	Node head;
+	int count = 0;
+	public int length() {
+		if(head == null) {
+			return 0;
+		}
+		Node temp = head;
+		while(temp != null) {
+			temp = temp.next;
+			count++;
+		}
+		return count;
+	}
+	public void insertAtEnd(int data) {
+		Node temp = head;
+		if(head == null) {
+			head = new Node(data);
+			return;
+		}
+		while(temp.next != null) {
+			temp = temp.next;
+		}
+		temp.next = new Node(data);
+	}
+
+	public static void main(String[] args) {
+		LengthOfLinkedList list = new LengthOfLinkedList();
+		list.insertAtEnd(0);
+		list.insertAtEnd(1);
+		list.insertAtEnd(2);
+		list.insertAtEnd(3);
+		list.insertAtEnd(100);
+		System.out.println(list.length());
+		
+	}
+
+}
