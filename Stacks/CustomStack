@@ -1,0 +1,60 @@
+package com.indra.interviewProcess.Stacks.Snippets;
+
+public class ArrayStack {
+	int size;
+	int[] stack;
+	int top;
+	ArrayStack(int size){
+		stack = new int[size];
+		this.size = size;;
+		this.top = -1;
+	}
+	private int getTop(){
+		if(!isEmpty()){ //not empty
+		return stack[top];
+		}else{
+			return -1;
+		}
+	}
+
+	private boolean isEmpty() {
+		return top == -1;
+	}
+	private boolean isFull(){
+		return top == size -1;
+	}
+	private void push(int data){
+		if(!isFull()){ //checking stack not full
+			top ++;
+			stack[top] = data;
+		}else{
+			System.out.println("Over flow, you cannot push data");
+		}
+	}
+	
+	private int pop(){
+		if(!isEmpty()){
+			int pop = stack[top];
+			top --;
+			return pop;
+		}
+		else{
+			return -1;
+		}
+	}
+	
+	public static void main(String[] args) {
+		ArrayStack stack = new ArrayStack(4);
+		stack.push(1);
+		stack.push(2);
+		stack.push(3);
+		stack.push(4);
+		int pop = stack.pop();
+		if(pop != -1){
+			System.out.println(pop);
+		}else{
+			System.out.println("Stack is Empty");
+		}
+	}
+
+}
