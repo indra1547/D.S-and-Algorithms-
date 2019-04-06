@@ -1,0 +1,30 @@
+package com.indra.interviewProcess.Strings.InterviewProblems;
+
+/*Given a 32-bit signed integer, reverse digits of an integer.
+*/
+public class ReverseInteger {
+	public int reverse(int num){
+		boolean negative = false;
+		if(num < 0){
+			negative = true;
+			num = (-1)*num;
+		}
+		long reverse = 0;
+		while(num > 0){
+			reverse = (reverse*10)+(num%10);
+			num/=10;
+		}
+		//handling overflow
+		if(reverse > Integer.MAX_VALUE){
+			return 0;
+		}
+		return negative ? (int)(-1*reverse) : (int)reverse;
+	}
+
+	public static void main(String[] args) {
+		ReverseInteger obj = new ReverseInteger();
+		System.out.println(obj.reverse(-123));
+
+	}
+
+}
