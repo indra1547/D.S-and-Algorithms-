@@ -1,0 +1,75 @@
+package queues;
+
+public class CustomQueue {
+	private int size;
+	private int[] queueArray;
+	private int front;
+	private int back;
+	private int noOfItems;
+	
+	CustomQueue(int size){
+		this.size = size;
+		this.queueArray = new int[size];
+		this.front = 0;
+		this.back = -1;
+		this.noOfItems = 0;
+	}
+	
+	private boolean isFull() {
+		return noOfItems == size;
+	}
+	
+	private boolean isEmpty() {
+		return noOfItems == 0;
+	}
+	
+	private int size() {
+		return noOfItems;
+	}
+	
+	private int top() {
+		return queueArray[front];
+	}
+	
+	private void enqueue(int val) {
+		if(isFull()) {
+			System.out.println("Queue is Full, operation not allowed");
+			return;
+		}
+		if (back == size - 1) {
+			back = -1;
+		}
+		queueArray[++back] = val;
+		++noOfItems;
+	}
+	
+	private int dequeue() {
+		if(isEmpty()) {
+			System.out.println("Queue is empty, operation not allowed");
+			return -1;
+		}
+		if (front == size ) {
+			front = 0;
+		}
+		int ele = queueArray[front++];
+		noOfItems--;
+		return ele;
+	}
+	
+	public static void main(String[] args) {
+		CustomQueue queue = new CustomQueue(5);
+		queue.enqueue(2);
+		queue.enqueue(4);
+		queue.enqueue(6);
+		queue.enqueue(8);
+		queue.enqueue(10);
+		queue.dequeue();
+		queue.dequeue();
+		queue.enqueue(12);
+        queue.enqueue(14);
+        while(!queue.isEmpty()) {
+        	System.out.println(queue.dequeue()+ " ");
+        }
+	}
+
+}
