@@ -1,0 +1,40 @@
+package com.indra.interviewProcess.Queues.InterviewProblems;
+
+import java.util.ArrayDeque;
+
+public class ReverseFirstKElementsInQueue {
+	public void reverse(ArrayDeque<Integer> queue, int k){
+		int queueSize = queue.size(); 
+		ArrayDeque<Integer> stack = new ArrayDeque<Integer>();
+		int count = 0;
+		while(count < k){
+			stack.push(queue.poll());
+			count ++;
+		}
+		while(!stack.isEmpty()){
+			queue.offer(stack.pop());
+		}
+		for(int i=0; i< queueSize-k; i++){
+			queue.offer(queue.poll());
+		}
+	
+	}
+
+	public static void main(String[] args) {
+		ReverseFirstKElementsInQueue obj = new ReverseFirstKElementsInQueue();
+		ArrayDeque<Integer> queue = new ArrayDeque<Integer>();
+		queue.offer(1);
+		queue.offer(2);
+		queue.offer(3);
+		queue.offer(4);
+		queue.offer(5);
+		queue.offer(6);
+		queue.offer(7);
+		obj.reverse(queue, 3);
+		System.out.println(queue);
+		
+		
+		
+	}
+
+}
