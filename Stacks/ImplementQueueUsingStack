@@ -1,0 +1,39 @@
+package queues;
+/*Implement Queue using Stack*/
+
+import java.util.ArrayDeque;
+
+public class ImplementQueueUsingStack {
+	ArrayDeque<Integer> stack1 = new ArrayDeque<Integer>();
+	ArrayDeque<Integer> stack2 = new ArrayDeque<Integer>();
+	
+	public void enQueue(int val) {
+		while(!stack1.isEmpty()) {
+			stack2.push(stack1.pop());
+		}
+		stack1.push(val);
+		while(!stack2.isEmpty()) {
+			stack1.push(stack2.pop());
+		}
+	}
+	public int deQueue() {
+		if(stack1.isEmpty()) {
+			return -1;
+		}else {
+			return stack1.pop();
+		}
+	}
+	
+
+	public static void main(String[] args) {
+		ImplementQueueUsingStack queue = new ImplementQueueUsingStack();
+		queue.enQueue(1);
+		queue.enQueue(2);
+		queue.enQueue(3);
+		queue.enQueue(4);
+		queue.enQueue(5);
+		int result = queue.deQueue();
+		System.out.println(result);
+	}
+
+}
