@@ -1,0 +1,32 @@
+package com.indra.AmazonLeetCode;
+/*Problem 387*/
+import java.util.HashMap;
+import java.util.Map;
+
+public class FirstUniqueCharcterInString {
+	public int firstUnique(String s) {
+		Map<Character, Integer> map = new HashMap<Character, Integer>();
+		for (int i = 0; i < s.length(); i++) {
+			Character current = s.charAt(i);
+			if (!map.containsKey(current)) {
+				map.put(current, i);
+			} else {
+				map.put(current, -1);
+			}
+		}
+		int min = Integer.MAX_VALUE;
+		for(Character ch : map.keySet()) {
+			if(map.get(ch) > -1 && map.get(ch) < min) {
+				min = map.get(ch);
+			}
+		}
+		 return min == Integer.MAX_VALUE ? -1 : min;
+	}
+
+	public static void main(String[] args) {
+		FirstUniqueCharcterInString obj = new FirstUniqueCharcterInString();
+		System.out.println(obj.firstUnique("loveleetcode"));
+
+	}
+
+}
