@@ -1,0 +1,67 @@
+package com.indra.LinkedList;
+
+public class LinkedList {
+	Node head;
+	public void append(int data) {
+		/*If head is null create the head*/
+		if(head == null) {
+			head = new Node(data);
+			return;
+		}
+		Node current = head;
+		while(current.next != null) {
+			current = current.next;
+		}
+		current.next = new Node(data);
+	}
+	public void prepend(int data) {
+		if(head == null) {
+			head = new Node(data);
+			return;
+		}
+		Node new_Node = new Node(data);
+		new_Node.next = head;
+		head = new_Node;
+	}
+	public void deleteNode(int data) {
+		Node temp = head;
+		if(head == null) {
+			return;
+		}
+		if(head.data == data) {
+			head = head.next;
+			return;
+		}
+		while(temp.next != null) {
+			if(temp.next.data == data) {
+				temp.next = temp.next.next;
+				return;
+			}
+			if(temp.next.data != data) {
+				System.out.println("Item not found to delete");
+				return;
+			}
+		}
+	}
+	public void addMidle(int data, int pos) {
+		
+	}
+	public void printList() {
+		Node temp = head;
+		while(temp != null) {
+			System.out.println(temp.data);
+			temp = temp.next;
+		}
+	}
+	public static void main(String[] args) {
+		LinkedList list = new LinkedList();
+		list.append(2);
+		list.append(3);
+		list.append(4);
+		list.append(5);
+		list.prepend(1);
+		list.deleteNode(1);
+		list.printList();
+	}
+
+}
