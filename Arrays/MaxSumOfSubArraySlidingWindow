@@ -1,0 +1,28 @@
+package com.indra.Java.CodingPatterns.SlidingWindow;
+/*Given an array of positive numbers and a positive number ‘k’, find the maximum sum of any subarray of size ‘k’.
+ * Input: [2, 1, 5, 1, 3, 2], k=3 
+ * Output: 9
+ * */
+
+public class MaxSumOfSubArraySlidingWindow {
+	public int maxSum(int[] nums, int k) {
+		int maxSum = 0;
+		int windowStart = 0;
+		int sum = 0;
+		for(int windowEnd = 0; windowEnd < nums.length; windowEnd++) {
+			sum = sum + nums[windowEnd];
+			if(windowEnd >= k-1) {
+				maxSum = Math.max(sum, maxSum);
+				sum = sum - nums[windowStart];
+				windowStart++;
+			}
+		}
+		return maxSum;
+	}
+
+	public static void main(String[] args) {
+		MaxSumOfSubArraySlidingWindow obj = new MaxSumOfSubArraySlidingWindow();
+		System.out.println(obj.maxSum(new int[] {2, 1, 5, 1, 3, 2}, 3));
+	}
+
+}
