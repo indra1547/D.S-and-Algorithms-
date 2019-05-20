@@ -17,6 +17,7 @@ public class BinaryTree1 {
 			root = new Node(value);
 			return true;
 		}
+		/*starting from the root*/
 		Node currentNode = root;
 		/*Traversing the tree until valid position to insert a value*/
 		while(currentNode != null) {
