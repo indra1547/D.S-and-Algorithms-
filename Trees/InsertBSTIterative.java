@@ -2,7 +2,7 @@ package com.indra.Trees;
 
 /*Inserting value into BST using iterative approach*/
 
-public class BinaryTree1 {
+public class BinarySearchTree1 {
 	Node root;
 	public Node getRoot() {
 		return root;
@@ -54,7 +54,7 @@ public class BinaryTree1 {
 		printTree(current.getRight());
 	}
 	public static void main(String[] args) {
-		BinaryTree1 bst = new BinaryTree1();
+		BinarySearchTree1 bst = new BinarySearchTree1();
 		bst.insert(1);
 		bst.insert(2);
 		bst.insert(3);
