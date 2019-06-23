@@ -1,5 +1,10 @@
 package com.indra.AmazonLeetCode;
-/*Prob : 136*/
+/*
+Prob : 136
+Given a non-empty array of integers, every element appears twice except for one. Find that single one.
+Input: [4,1,2,1,2]
+Output: 4
+*/
 
 import java.util.HashMap;
 import java.util.Map;
