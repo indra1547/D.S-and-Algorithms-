@@ -16,6 +16,9 @@
  Output: [1, 3, 4]
  
  */
+/*
+Implementation: Tracking rightmost elements using BFS
+*/
 class Solution {
     public List<Integer> rightSideView(TreeNode root) {
         List<Integer> res = new ArrayList<Integer>();
