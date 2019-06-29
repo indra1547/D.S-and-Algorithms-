@@ -4,7 +4,7 @@ Input: "abcabcbb"
 Output: 3 
 Explanation: The answer is "abc", with the length of 3. 
 */
-class lengthOfLongestSubstring {
+class LengthOfLongestSubstring {
     public int lengthOfLongestSubstring(String s) {
         Set<Character> set = new HashSet<Character>();
         int maxLength = 0;
