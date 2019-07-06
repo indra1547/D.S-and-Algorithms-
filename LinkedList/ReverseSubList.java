@@ -8,9 +8,11 @@ public class ReverseSubList {
 		// skip p-1 nodes, current will point to pth node
 		Node current = head;
 		Node previous = null;
-		for (int i = 0; current != null && i < p - 1; i++) {
+		int i = 0;
+		while(current != null && i < p - 1) {
 			previous = current;
 			current = current.next;
+			i++;
 		}
 		/*
 		 * we are interested in three parts of the LinkedList, part before index
@@ -20,7 +22,7 @@ public class ReverseSubList {
 		Node lastNodeOfSubList = current;
 		Node next = null; // to store temprorily next node
 		// reverse node between p and q
-		for (int i = 0; current != null && i < q - p + 1; i++) {
+		for (int j = 0; current != null && j < q - p + 1; j++) {
 			next = current.next;
 			current.next = previous;
 			previous = current;
