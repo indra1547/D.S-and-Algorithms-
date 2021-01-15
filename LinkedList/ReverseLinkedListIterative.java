@@ -2,6 +2,7 @@ package com.learn.cs.datastructures.linkedlist;
 
 public class ReverseLinkedList {
 	
+	//O(n)
 	public <T>  void reverseLinkedList(SinglyLinkedList<T> list) {
 		
 		Node currentNode = list.head;
