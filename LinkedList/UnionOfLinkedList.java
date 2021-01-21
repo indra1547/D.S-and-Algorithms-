@@ -9,7 +9,7 @@ package com.learn.cs.datastructures.linkedlist;
 
 public class UnionOfLinkedList {
 	
-	
+	//O(n+m)
 	public static <T> SinglyLinkedList<T> unionOfLinkedLists(SinglyLinkedList<T> lis1, SinglyLinkedList<T> lis2) {
 		
 		if(lis1.isListEmpty()) {
